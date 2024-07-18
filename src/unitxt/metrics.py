@@ -1372,6 +1372,7 @@ class F1Binary(GlobalMetric):
     metric = "f1"
     single_reference_per_prediction = True
     _requirements_list: List[str] = ["sklearn"]
+    ci_scores = [main_score, "f1_binary_neg"]
 
     def prepare(self):
         super().prepare()
@@ -3847,6 +3848,7 @@ class BinaryMaxF1(F1Binary):
     main_score = "max_f1_binary"
     single_reference_per_prediction = True
     average = None
+    ci_scores = [main_score, "max_f1_binary_neg"]
 
     def compute(
         self,
